@@ -1,0 +1,43 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, "Inter", sans-serif;
+  background-color: #0f172a; /* dark background */
+  color: #e2e8f0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+h1 span {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  max-width: 600px;
+}
