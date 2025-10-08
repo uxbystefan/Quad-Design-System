@@ -1,0 +1,70 @@
+/* QUAD DESIGN SYSTEM — TYPOGRAPHY TOKENS */
+/* Font family: Satoshi (import in HTML or via @import) */
+
+:root {
+  /* Font Family */
+  --font-family-primary: 'Satoshi', sans-serif;
+
+  /* Display / Hero (H1) */
+  --display-mobile-size: 32px;
+  --display-tablet-size: 40px;
+  --display-desktop-size: 48px;
+  --display-tv-size: 64px;
+  --display-weight: 700;
+  --display-line-height: 120%;
+
+  /* Headline (H2) */
+  --headline-mobile-size: 24px;
+  --headline-tablet-size: 28px;
+  --headline-desktop-size: 32px;
+  --headline-tv-size: 40px;
+  --headline-weight: 500;
+  --headline-line-height: 130%;
+
+  /* Subtitle (H3) */
+  --subtitle-mobile-size: 20px;
+  --subtitle-tablet-size: 22px;
+  --subtitle-desktop-size: 24px;
+  --subtitle-tv-size: 28px;
+  --subtitle-weight: 500;
+  --subtitle-line-height: 130%;
+
+  /* Body / Paragraph */
+  --body-mobile-size: 16px;
+  --body-tablet-size: 16px;
+  --body-desktop-size: 18px;
+  --body-tv-size: 20px;
+  --body-weight: 400;
+  --body-line-height: 140%;
+
+  /* Label / Button */
+  --label-mobile-size: 14px;
+  --label-tablet-size: 14px;
+  --label-desktop-size: 16px;
+  --label-tv-size: 18px;
+  --label-weight: 500;
+  --label-line-height: 120%;
+
+  /* Caption / Helper */
+  --caption-mobile-size: 12px;
+  --caption-tablet-size: 12px;
+  --caption-desktop-size: 14px;
+  --caption-tv-size: 16px;
+  --caption-weight: 400;
+  --caption-line-height: 130%;
+}
+
+/* Example usage */
+h1 {
+  font-family: var(--font-family-primary);
+  font-size: var(--display-desktop-size);
+  font-weight: var(--display-weight);
+  line-height: var(--display-line-height);
+}
+
+p {
+  font-family: var(--font-family-primary);
+  font-size: var(--body-desktop-size);
+  font-weight: var(--body-weight);
+  line-height: var(--body-line-height);
+}
