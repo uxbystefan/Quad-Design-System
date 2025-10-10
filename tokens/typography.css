@@ -5,6 +5,15 @@
   /* Font Family */
   --font-family-primary: 'Satoshi', sans-serif;
 
+  /* Text Colors */
+  /* Light Mode */
+  --text-light-primary: #111827;
+  --text-light-secondary: #4B5563;
+
+  /* Dark Mode */
+  --text-dark-primary: #F8FAFC;
+  --text-dark-secondary: #CBD5E1;
+
   /* Display / Hero (H1) */
   --display-mobile-size: 32px;
   --display-tablet-size: 40px;
@@ -55,11 +64,35 @@
 }
 
 /* Example usage */
+
+/* Light Mode by default */
+body {
+  font-family: var(--font-family-primary);
+  color: var(--text-light-primary);
+}
+
 h1 {
   font-family: var(--font-family-primary);
   font-size: var(--display-desktop-size);
   font-weight: var(--display-weight);
   line-height: var(--display-line-height);
+  color: var(--text-light-primary);
+}
+
+h2 {
+  font-family: var(--font-family-primary);
+  font-size: var(--headline-desktop-size);
+  font-weight: var(--headline-weight);
+  line-height: var(--headline-line-height);
+  color: var(--text-light-primary);
+}
+
+h3 {
+  font-family: var(--font-family-primary);
+  font-size: var(--subtitle-desktop-size);
+  font-weight: var(--subtitle-weight);
+  line-height: var(--subtitle-line-height);
+  color: var(--text-light-primary);
 }
 
 p {
@@ -67,4 +100,40 @@ p {
   font-size: var(--body-desktop-size);
   font-weight: var(--body-weight);
   line-height: var(--body-line-height);
+  color: var(--text-light-secondary);
+}
+
+label, button {
+  font-family: var(--font-family-primary);
+  font-size: var(--label-desktop-size);
+  font-weight: var(--label-weight);
+  line-height: var(--label-line-height);
+  color: var(--text-light-primary);
+}
+
+span.caption {
+  font-family: var(--font-family-primary);
+  font-size: var(--caption-desktop-size);
+  font-weight: var(--caption-weight);
+  line-height: var(--caption-line-height);
+  color: var(--text-light-secondary);
+}
+
+/* Dark Mode override */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: var(--text-dark-primary);
+  }
+
+  h1, h2, h3 {
+    color: var(--text-dark-primary);
+  }
+
+  p, span.caption {
+    color: var(--text-dark-secondary);
+  }
+
+  label, button {
+    color: var(--text-dark-primary);
+  }
 }
