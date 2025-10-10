@@ -8,7 +8,7 @@
 html, body {
   height: 100%;
   font-family: system-ui, -apple-system, "Inter", sans-serif;
-  background-color: #0f172a; /* dark background */
+  background-color: #0F172A; /* dark background */
   color: #e2e8f0;
 }
 
@@ -30,7 +30,7 @@ h1 {
 }
 
 h1 span {
-  background: linear-gradient(90deg, #4A6CF7, #22D3EE);
+  background: linear-gradient(100deg, #3BB273, #3BB273);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
