@@ -41,3 +41,22 @@ p {
   color: #cbd5e1;
   max-width: 600px;
 }
+
+/* Footer */
+.site-footer {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 12px;
+  padding: 6px 12px;
+  pointer-events: none; /* make non-interactive */
+}
+
+.site-footer .brand {
+  font-size: 0.95rem;
+  color: #f8fafc; /* fallback */
+  background: linear-gradient(100deg, #3BB273, #3BB273);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
