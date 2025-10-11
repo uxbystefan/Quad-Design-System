@@ -42,14 +42,94 @@ p {
   max-width: 600px;
 }
 
+.links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.links__item {
+  text-decoration: none;
+  font-weight: 600;
+  color: #cbd5e1; /* fallback */
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.links__item:hover {
+  background: rgba(59,178,115,0.08);
+}
+
+.links__item--brand,
+.links__item.brand-like {
+  background: linear-gradient(100deg, #3BB273, #3BB273);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.links__item.github {
+  color: #cbd5e1;
+}
+
+/* Icon sizing and rhythm */
+.links__item .icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Entrance animation */
+.fade-up {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeUp 600ms cubic-bezier(.2,.9,.3,1) forwards;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Stagger the appearance */
+.container > * {
+  /* applies to h1, p, .links */
+  will-change: opacity, transform;
+}
+
+.container h1 { animation-delay: 120ms; }
+.container h1, .container p, .container .links { animation-name: none; }
+.container h1 { animation: fadeUp 700ms cubic-bezier(.2,.9,.3,1) forwards; }
+.container p { animation: fadeUp 700ms cubic-bezier(.2,.9,.3,1) 180ms forwards; }
+.container .links { animation: fadeUp 700ms cubic-bezier(.2,.9,.3,1) 320ms forwards; }
+
+/* Make link labels and icons animate slightly on hover */
+.links__item:hover .icon,
+.links__item:focus .icon {
+  transform: translateY(-2px) scale(1.03);
+}
+.links__item:hover .links__label,
+.links__item:focus .links__label {
+  text-decoration: underline;
+}
+
+/* Footer should also fade in separately */
+/* Footer is static at bottom center */
+.site-footer { opacity: 1; transform: translateY(0); }
+
 /* Footer */
 .site-footer {
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 12px;
+  transform: translateX(-50%);
   padding: 6px 12px;
   pointer-events: none; /* make non-interactive */
+  z-index: 30;
 }
 
 .site-footer .brand {
@@ -59,4 +139,44 @@ p {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+/* Docs menu (left side) */
+.docs-menu {
+  position: fixed;
+  left: 18px;
+  top: 18px;
+  transform: none;
+  background: rgba(15,23,42,0.6);
+  padding: 10px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  color: #cbd5e1;
+  z-index: 40;
+}
+
+.docs-menu__title {
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+  color: #e2e8f0;
+}
+
+.docs-menu__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docs-menu__list a {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .docs-menu { display: none; }
+  .container { padding-left: 1rem; padding-right: 1rem; }
 }
