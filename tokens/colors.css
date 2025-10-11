@@ -1,0 +1,23 @@
+:root {
+  /* PRODUCT COLORS */
+  --color-product-primary: #3BB273;
+  --color-product-secondary: #243B55;
+  --color-product-success: #22C55E;
+  --color-product-error: #EF4444;
+  --color-product-warning: #FACC15;
+  --color-product-info: #5D9BFF;
+
+  /* LIGHT MODE */
+  --color-light-background: #F2F2F2;
+  --color-light-surface: #DCE0E6;
+  --color-light-text-primary: #111827;
+  --color-light-text-secondary: #4B5563;
+  --color-light-border: #E5E7EB;
+
+  /* DARK MODE */
+  --color-dark-background: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-dark-text-primary: #F8FAFC;
+  --color-dark-text-secondary: #CBD5E1;
+  --color-dark-border: #334155;
+}
