@@ -37,13 +37,13 @@ HTML & CSS (Foundations) | Vue.js (First component implementations)
 Planned: React / SwiftUI / Flutter implementations
 
 🔗 Live Demo
-View Quad on Vercel
+View Quad on [Vercel](https://quad-design-system.vercel.app/)
 
 💬 Author
 
 Designed & developed by Stefan Saric
 
-Follow the journey on LinkedIn
+Follow the journey on https://www.linkedin.com/in/uxbystefan/
 
 📅 Upcoming (v0.3)
 
