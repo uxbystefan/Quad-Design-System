@@ -47,7 +47,7 @@ Follow the journey on https://www.linkedin.com/in/uxbystefan/
 
 📅 Upcoming (v0.3)
 
-• Responsive Grid System (now moved here!)
+• Responsive Grid System 
 
 • Navigation components (Header/Navbar, Sidebar)
 
