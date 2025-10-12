@@ -30,9 +30,7 @@ Quad is built to unify design and development across all devices and platforms.
 Its goal is to become a flexible, open-source system that can scale from web to mobile, smart devices, and beyond.
 
 🛠️ Tech Stack
-HTML & CSS (Foundations)
-
-Vue.js (First component implementations)
+HTML & CSS (Foundations) | Vue.js (First component implementations)
 
 Planned: React / SwiftUI / Flutter implementations
 
