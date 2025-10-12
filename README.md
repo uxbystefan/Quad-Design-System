@@ -42,10 +42,11 @@ Designed & developed by Stefan Saric
 Follow the journey on LinkedIn
 
 📅 Upcoming (v0.3)
-Navigation components (Header/Navbar, Sidebar)
 
-Card and list-item components
+ • Navigation components (Header/Navbar, Sidebar)
 
-Form validation and feedback patterns
+ • Card and list-item components
 
-Full Dark Mode component support
+ • Form validation and feedback patterns
+
+ • Full Dark Mode component support
