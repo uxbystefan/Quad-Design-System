@@ -6,17 +6,17 @@ It adapts seamlessly across mobile, tablet, desktop, and TV interfaces, giving d
 🚀 Version
 v0.2 — Core Components Release
 
-This version dramatically expands the system's utility by introducing the most foundational interactive elements and the first steps toward a full responsive layout system.
+This version focuses on delivering the most foundational interactive elements to enable rapid development of basic UIs.
 
 New in v0.2:
 
-🔘 Interactive Elements: Comprehensive Button and Input components (including various states, sizes, and styles).
+🔘 Buttons: Comprehensive Button components covering various states (e.g., primary, secondary, disabled, loading), sizes, and styles.
 
-📐 Responsive Layout: A modular, customizable Grid System to handle complex and responsive screen layouts.
+⌨️ Inputs: Robust Input components for text, password, and other common form fields, ensuring consistency and accessibility.
 
-✨ Iconography: Initial integration of an essential Icon Set to support core actions and navigation.
+✨ Iconography: Initial integration of an essential Icon Set to support core actions and navigation within components.
 
-🔄 Component Foundation: CSS and initial Vue component implementations for the new elements.
+🔄 Component Foundation: CSS and initial Vue component implementations for the new interactive elements.
 
 Status (v0.1 Foundations)
 ✅ Core color palette (light & dark mode support)
@@ -43,10 +43,12 @@ Follow the journey on LinkedIn
 
 📅 Upcoming (v0.3)
 
- • Navigation components (Header/Navbar, Sidebar)
+• Responsive Grid System (now moved here!)
 
- • Card and list-item components
+• Navigation components (Header/Navbar, Sidebar)
 
- • Form validation and feedback patterns
+• Card and list-item components
 
- • Full Dark Mode component support
+• Form validation and feedback patterns
+
+• Full Dark Mode component support
