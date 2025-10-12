@@ -42,6 +42,7 @@ View Quad on Vercel
 💬 Author
 
 Designed & developed by Stefan Saric
+
 Follow the journey on LinkedIn
 
 📅 Upcoming (v0.3)
