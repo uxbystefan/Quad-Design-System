@@ -31,6 +31,7 @@ Its goal is to become a flexible, open-source system that can scale from web to 
 
 🛠️ Tech Stack
 HTML & CSS (Foundations)
+
 Vue.js (First component implementations)
 
 Planned: React / SwiftUI / Flutter implementations
