@@ -40,6 +40,7 @@ Planned: React / SwiftUI / Flutter implementations
 View Quad on Vercel
 
 💬 Author
+
 Designed & developed by Stefan Saric
 Follow the journey on LinkedIn
 
