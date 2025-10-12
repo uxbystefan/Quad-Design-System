@@ -19,6 +19,7 @@ New in v0.2:
 🔄 Component Foundation: CSS and initial Vue component implementations for the new interactive elements.
 
 Status (v0.1 Foundations)
+
 ✅ Core color palette (light & dark mode support)
 
 ✅ Typography foundation setup
