@@ -27,6 +27,7 @@ Status (v0.1 Foundations)
 ✅ Base structure for upcoming components
 
 🧠 Vision
+
 Quad is built to unify design and development across all devices and platforms.
 Its goal is to become a flexible, open-source system that can scale from web to mobile, smart devices, and beyond.
 
