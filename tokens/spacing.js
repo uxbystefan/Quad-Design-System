@@ -1,3 +1,5 @@
+// Read spacing values dynamically from CSS variables
+
 const rootStyles = getComputedStyle(document.documentElement);
 const spacingFromCSS = {
 xxs: parseInt(rootStyles.getPropertyValue('--spacing-xxs')),
