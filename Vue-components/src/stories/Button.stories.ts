@@ -1,101 +1,98 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
-// @ts-ignore
-import Button from './Button.vue';
+// IMPORTANT: Assuming your component is at src/components/Button.vue
+import Button from '../components/Button.vue';
 
 // --- 1. Define the Component Metadata ---
-// The Meta object describes your component, its name in the sidebar, and the controls it exposes.
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
   tags: ['autodocs'],
-  
+
   // Customizing controls for the Storybook UI
   argTypes: {
-    // Control for the 'variant' prop
-    variant: {
-      control: 'select',
-      options: ['primary', 'ghost', 'danger'],
-      description: 'The visual style and purpose of the button.'
-    },
-    // Control for the 'disabled' prop
+    // Only 'disabled' and 'label' are necessary since the variant is hardcoded to primary
     disabled: {
       control: 'boolean',
-      description: 'Controls whether the button is clickable.'
+      description: 'Controls whether the button is clickable.',
     },
-    // Control for the content (label prop or default slot)
-    label: { 
-        control: 'text', 
-        description: 'The text content of the button (used when the slot is empty).' 
+    label: {
+      control: 'text',
+      description: 'The text content of the button.',
     },
-    // Action logger for the emitted 'click' event
-    click: { action: 'button-clicked' },
+    onClick: { action: 'button-clicked' },
   },
-  
+
   // Default argument values for all stories
   args: {
-    label: 'Default Button',
-    variant: 'primary',
+    label: 'Button',
     disabled: false,
   },
 };
 
 export default meta;
 
-// --- 2. Define Individual Stories (Variants) ---
+// --- 2. Define Individual Stories ---
 type Story = StoryObj<typeof Button>;
 
-// 2.1. Primary Button (the main action)
-export const Primary: Story = {
+/**
+ * This story demonstrates the single primary button with responsive styling.
+ * Resize the Storybook canvas to see the padding and font size change for
+ * Tablet (>= 768px), Desktop (>= 1024px), and TV (>= 1280px) breakpoints.
+ */
+export const PrimaryResponsive: Story = {
   args: {
-    label: 'Primary Action',
-    variant: 'primary',
+    label: 'Responsive Primary Button',
   },
-};
-
-// 2.2. Ghost Button (secondary, often used on dark backgrounds)
-export const Ghost: Story = {
-  // We can add a background parameter here to better showcase the ghost variant
   parameters: {
-    backgrounds: { default: 'dark' },
-  },
-  args: {
-    label: 'Ghost Button',
-    variant: 'ghost',
-  },
-};
-
-// 2.3. Danger Button (destructive actions)
-export const Danger: Story = {
-  args: {
-    label: 'Delete Item',
-    variant: 'danger',
+    docs: {
+      description: {
+        story: 'This button demonstrates the required responsive changes for **Mobile** (default/base), **Tablet** (>= 768px), **Desktop** (>= 1024px), and **TV** (>= 1280px). Please **resize the Storybook canvas** to observe the padding (8/16 -> 10/20 -> 12/24 -> 16/32) and font size changing automatically.',
+      },
+    },
   },
 };
 
-// 2.4. Disabled States (one for each variant)
-
-// Using the Render function to display multiple disabled buttons in one story
-export const AllDisabledStates: Story = {
-  parameters: {
-    // Since ghost looks best on dark, we keep the background dark for this story
-    backgrounds: { default: 'dark' },
+/**
+ * Primary button in a disabled state.
+ */
+export const PrimaryDisabled: Story = {
+  args: {
+    label: 'Primary Disabled',
+    disabled: true,
   },
-  render: (args: any) => ({
+};
+
+// --- 3. Example of all states shown side-by-side for visual clarity ---
+export const AllStatesShowcase: Story = {
+  render: (args) => ({
     components: { Button },
     setup() {
-      // We pass the global 'args' (like the click handler) down to all buttons
-      return { args };
+      // Create multiple instances to show how a layout of buttons would look.
+      // Note: All of these buttons change size simultaneously based on screen width.
+      return { 
+        args, 
+        mobileLabel: "Mobile",
+        tabletLabel: "Tablet",
+        desktopLabel: "Desktop",
+        tvLabel: "TV"
+      };
     },
     template: `
-      <div style="display: flex; gap: 16px; align-items: center;">
-        <Button v-bind="args" variant="primary" :disabled="true" label="Primary Disabled" />
-        <Button v-bind="args" variant="ghost" :disabled="true" label="Ghost Disabled" />
-        <Button v-bind="args" variant="danger" :disabled="true" label="Danger Disabled" />
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 24px; background: #E2E8F0; width: 100%;">
+        <h3>Resize the canvas to see these buttons adapt simultaneously:</h3>
+        
+        <Button v-bind="args" :label="mobileLabel" />
+        <Button v-bind="args" :label="tabletLabel" />
+        <Button v-bind="args" :label="desktopLabel" />
+        <Button v-bind="args" :label="tvLabel" />
+
+        <h3>Disabled Example:</h3>
+        <Button v-bind="args" label="Disabled Button" :disabled="true" />
       </div>
     `,
   }),
-  // Explicitly set disabled to true for the control panel view of this story
+  // Remove the default label from props so it uses the specific ones in the render template
   args: {
-    disabled: true,
-  },
+    label: undefined,
+  }
 };
