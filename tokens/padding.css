@@ -1,0 +1,52 @@
+:root {
+  /* Mobile */
+  --button-padding-vertical-mobile: 8px;
+  --button-padding-horizontal-mobile: 16px;
+
+  /* Tablet */
+  --button-padding-vertical-tablet: 10px;
+  --button-padding-horizontal-tablet: 20px;
+
+  /* Desktop */
+  --button-padding-vertical-desktop: 12px;
+  --button-padding-horizontal-desktop: 24px;
+
+  /* TV */
+  --button-padding-vertical-tv: 16px;
+  --button-padding-horizontal-tv: 32px;
+}
+
+/* Example usage — Responsive button */
+.button {
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Mobile default */
+.button {
+  padding: var(--button-padding-vertical-mobile) var(--button-padding-horizontal-mobile);
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .button {
+    padding: var(--button-padding-vertical-tablet) var(--button-padding-horizontal-tablet);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .button {
+    padding: var(--button-padding-vertical-desktop) var(--button-padding-horizontal-desktop);
+  }
+}
+
+/* TV / large displays */
+@media (min-width: 1440px) {
+  .button {
+    padding: var(--button-padding-vertical-tv) var(--button-padding-horizontal-tv);
+  }
+}
