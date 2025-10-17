@@ -56,3 +56,12 @@ Follow the journey on https://www.linkedin.com/in/uxbystefan/
 • Form validation and feedback patterns
 
 • Full Dark Mode component support
+
+
+## 🤝 Contributing
+
+We welcome contributions across all frameworks! Please read our [Contributor Guidelines](CONTRIBUTING.md) before submitting a Pull Request.
+
+## ⚖️ License
+
+Quad Design System is [MIT Licensed](LICENSE).
