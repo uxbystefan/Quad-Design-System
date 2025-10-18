@@ -1,23 +1,69 @@
+/* * Quad Design System - Color Tokens (CSS Variables)
+ * Generated directly from Figma Variables for 1:1 parity.
+ * Light Mode is the default definition. Dark Mode uses the @media query.
+ */
 :root {
-  /* PRODUCT COLORS */
-  --color-product-primary: #3BB273;
-  --color-product-secondary: #243B55;
-  --color-product-success: #22C55E;
-  --color-product-error: #EF4444;
-  --color-product-warning: #FACC15;
-  --color-product-info: #5D9BFF;
+  /* =================================
+     1. PRODUCT COLORS (Base & Action States - Light Mode Default)
+     ================================= */
+  
+  /* --- PRIMARY ACTION --- */
+  --color-product-primary-default: #3BB273;
+  --color-product-primary-hover: #158650;
+  --color-product-primary-focus: #158650;
+  --color-product-primary-click: #23A665;
+  --color-product-primary-loading: #23A665;
+  --color-product-primary-disabled: #AFEBC5;
 
-  /* LIGHT MODE */
+  /* --- SECONDARY ACTION (Light Theme) --- */
+  --color-product-secondary-light-default: #243B55;
+  --color-product-secondary-light-hover: #2A517A;
+  --color-product-secondary-light-focus: #2A517A;
+  --color-product-secondary-light-click: #447EB3;
+  --color-product-secondary-light-loading: #447EB3;
+  --color-product-secondary-light-disabled: #CBDCEC;
+
+  /* --- STATUS / ACCENT COLORS (Static) --- */
+  --color-product-accent-success: #22C55E;
+  --color-product-accent-error: #EF4444;
+  --color-product-accent-warning: #FACC15;
+  --color-product-accent-info: #5D9BFF;
+
+  /* =================================
+     2. UTILITY & THEME COLORS (Light Mode)
+     ================================= */
   --color-light-background: #F2F2F2;
   --color-light-surface: #DCE0E6;
-  --color-light-text-primary: #111827;
-  --color-light-text-secondary: #4B5563;
   --color-light-border: #E5E7EB;
 
-  /* DARK MODE */
+  /* =================================
+     3. UTILITY & THEME COLORS (Dark Mode)
+     (Defined here so they can be referenced easily)
+     ================================= */
   --color-dark-background: #0F172A;
   --color-dark-surface: #1E293B;
-  --color-dark-text-primary: #F8FAFC;
-  --color-dark-text-secondary: #CBD5E1;
   --color-dark-border: #334155;
+}
+
+/* ========================================================================
+   4. DARK MODE OVERRIDES
+   Overrides secondary colors and utility colors when dark mode is active.
+   ======================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --- SECONDARY ACTION (Dark Theme) OVERRIDES --- */
+    --color-product-secondary-dark-default: #CBDCEC; /* Base Override */
+    --color-product-secondary-dark-hover: #9CBDDD;
+    --color-product-secondary-dark-focus: #9CBDDD;
+    --color-product-secondary-dark-click: #689BC8;
+    --color-product-secondary-dark-loading: #689BC8;
+    --color-product-secondary-dark-disabled: #447EB3;
+    
+    /* --- UTILITY OVERRIDES (Applying Dark Mode colors to generic slots) --- */
+    /* NOTE: In a framework implementation, these would be applied via component logic,
+       but listing here for completeness. */
+    --color-light-background: var(--color-dark-background);
+    --color-light-surface: var(--color-dark-surface);
+    --color-light-border: var(--color-dark-border);
+  }
 }

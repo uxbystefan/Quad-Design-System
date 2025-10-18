@@ -6,9 +6,23 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
+    // New controls for the component
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'success', 'error', 'warning', 'info'],
+      description: 'Defines the semantic color and style of the button.',
+    },
     disabled: {
       control: 'boolean',
-      description: 'Controls whether the button is clickable.',
+      description: 'Controls whether the button is clickable and applies the disabled style.',
+    },
+    loading: {
+      control: 'boolean',
+      description: 'Applies the loading style (click/active color) and shows a spinner.',
+    },
+    isDarkMode: {
+      control: 'boolean',
+      description: 'FOR DEMO ONLY: Toggles the secondary dark mode color override.',
     },
     label: {
       control: 'text',
@@ -18,17 +32,29 @@ const meta: Meta<typeof Button> = {
   },
   args: {
     label: 'Button',
+    variant: 'primary',
     disabled: false,
+    loading: false,
+    isDarkMode: false,
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-// --- Responsive demo (canvas resizing) ---
+// --- 1. Base Story: Interactive Control Test ---
+export const InteractivePrimary: Story = {
+  args: {
+    label: 'Primary Button',
+    variant: 'primary',
+  },
+};
+
+// --- 2. Responsive Demo (Canvas Resizing) ---
 export const PrimaryResponsive: Story = {
   args: {
     label: 'Responsive Primary Button',
+    variant: 'primary',
   },
   parameters: {
     docs: {
@@ -40,51 +66,95 @@ export const PrimaryResponsive: Story = {
   },
 };
 
-// --- Disabled state ---
-export const PrimaryDisabled: Story = {
+// --- 3. Loading State Demo ---
+export const PrimaryLoading: Story = {
   args: {
-    label: 'Primary Disabled',
-    disabled: true,
+    label: 'Processing...',
+    loading: true,
+    variant: 'primary',
   },
 };
 
-// --- Showcase of all static breakpoints side-by-side ---
-export const AllStatesShowcase: Story = {
+// --- 4. Secondary Dark Mode Demo ---
+export const SecondaryDarkMode: Story = {
+  args: {
+    label: 'Secondary (Dark Mode)',
+    variant: 'secondary',
+    isDarkMode: true,
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'This demonstrates the color override for the Secondary button when the application is running in Dark Mode.',
+      },
+    },
+  },
+};
+
+// --- 5. Comprehensive Showcase of ALL Variants and States ---
+export const AllVariantsShowcase: Story = {
   render: (args) => ({
     components: { Button },
     setup() {
-      return { args };
+      const variants = ['primary', 'secondary', 'success', 'error', 'warning', 'info'];
+      const theme = [
+        { name: 'Light Mode', darkMode: false, background: '#DCE0E6', labelSuffix: '' },
+        { name: 'Dark Mode', darkMode: true, background: '#1E293B', labelSuffix: ' (DM)' }
+      ];
+      return { args, variants, theme };
     },
     template: `
-      <div style="display: flex; flex-direction: column; gap: 24px; padding: 24px; background: #E2E8F0;">
-        <h3>All Breakpoints Preview (Static Width Containers)</h3>
+      <div v-for="t in theme" :key="t.name" :style="{ backgroundColor: t.background, padding: '24px', marginBottom: '24px', borderRadius: '8px' }">
+        <h3 :style="{ color: t.darkMode ? '#F8FAFC' : '#111827', marginBottom: '16px' }">{{ t.name }} Showcase</h3>
+        <div style="display: grid; grid-template-columns: repeat(6, auto); gap: 16px;">
+          
+          <template v-for="v in variants" :key="v">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <h4 :style="{ color: t.darkMode ? '#94A3B8' : '#4B5563', fontSize: '14px', margin: 0, textTransform: 'capitalize' }">{{ v }}</h4>
+              
+              <!-- Default -->
+              <Button 
+                :label="v + t.labelSuffix" 
+                :variant="v" 
+                :is-dark-mode="t.darkMode" 
+                :disabled="false" 
+                :loading="false"
+              />
 
-        <div style="display: flex; flex-direction: column; gap: 12px;">
-          <div style="background:#fff;padding:16px;width:360px;">
-            <strong>Mobile (360px wide)</strong><br>
-            <Button v-bind="args" label="Mobile (min-height 44px)" />
-          </div>
+              <!-- Loading / Active -->
+              <Button 
+                :label="'Loading' + t.labelSuffix" 
+                :variant="v" 
+                :is-dark-mode="t.darkMode" 
+                :loading="true"
+                :disabled="false"
+              />
 
-          <div style="background:#fff;padding:16px;width:768px;">
-            <strong>Tablet (768px wide)</strong><br>
-            <Button v-bind="args" label="Tablet (min-height 48px)" />
-          </div>
-
-          <div style="background:#fff;padding:16px;width:1024px;">
-            <strong>Desktop (1024px wide)</strong><br>
-            <Button v-bind="args" label="Desktop (min-height 56px)" />
-          </div>
-
-          <div style="background:#fff;padding:16px;width:1280px;">
-            <strong>TV (1280px wide)</strong><br>
-            <Button v-bind="args" label="TV (min-height 64px)" />
-          </div>
+              <!-- Disabled -->
+              <Button 
+                :label="'Disabled' + t.labelSuffix" 
+                :variant="v" 
+                :is-dark-mode="t.darkMode" 
+                :disabled="true"
+                :loading="false"
+              />
+              
+              <!-- Placeholder for Hover/Active - Stories don't easily support native hover/active styling -->
+              <div :style="{ fontSize: '12px', color: t.darkMode ? '#94A3B8' : '#4B5563' }">
+                (Hover/Active tested separately)
+              </div>
+            </div>
+          </template>
         </div>
-
-        <h3>Disabled Example:</h3>
-        <Button v-bind="args" label="Disabled Button" :disabled="true" />
       </div>
     `,
   }),
-  args: { label: undefined },
+  args: { label: undefined }, // Clear the default arg label
+  parameters: {
+    docs: {
+      description: {
+        story: 'A side-by-side demonstration of all **6 variants** across **Light Mode** and **Dark Mode** for the Default, Loading, and Disabled states. Note how only the **Secondary** variant changes color in Dark Mode.',
+      },
+    },
+  },
 };
